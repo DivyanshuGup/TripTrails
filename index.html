@@ -1,0 +1,739 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="description" content="TripTrails – Explore Your Perfect Travel Destination. Handcrafted travel experiences to the world's most breathtaking destinations."/>
+  <meta name="keywords" content="travel, destinations, tour packages, holiday, vacation, triptrails"/>
+  <meta name="author" content="TripTrails"/>
+  <title>TripTrails – Explore Your Perfect Destination</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="css/style.css"/>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav id="navbar">
+  <a href="#hero" class="logo">Trip<span>Trails</span></a>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="#destinations">Destinations</a></li>
+    <li><a href="#packages">Packages</a></li>
+    <li><a href="#gallery">Gallery</a></li>
+    <li><a href="#testimonials">Reviews</a></li>
+    <li><a href="#contact">Contact</a></li>
+    <li><a href="#contact" class="nav-cta">Book Now</a></li>
+  </ul>
+  <div class="hamburger" id="hamburger" onclick="toggleMenu()">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-pattern"></div>
+  <div class="hero-content">
+    <div class="hero-tag">✈ Explore the World</div>
+    <h1 class="hero-title">
+      Discover Your<br><em>Perfect Escape</em>
+    </h1>
+    <p class="hero-subtitle">
+      Handcrafted travel experiences to the world's most breathtaking destinations. Let us turn your dream trip into an unforgettable reality.
+    </p>
+    <div class="hero-actions">
+      <a href="#destinations" class="btn-primary">🗺 Explore Destinations</a>
+      <a href="#packages" class="btn-secondary">📦 View Packages</a>
+    </div>
+  </div>
+  <div class="hero-scroll">
+    <span>Scroll</span>
+    <div class="scroll-line"></div>
+  </div>
+  <div class="hero-stats">
+    <div class="stat">
+      <div class="stat-num">500+</div>
+      <div class="stat-label">Destinations</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num">12K+</div>
+      <div class="stat-label">Happy Travelers</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num">98%</div>
+      <div class="stat-label">Satisfaction</div>
+    </div>
+  </div>
+</section>
+
+<!-- SEARCH BAR -->
+<div class="search-section">
+  <div class="search-bar">
+    <div class="search-field">
+      <label>Destination</label>
+      <input type="text" id="searchDest" placeholder="Where do you want to go?" />
+    </div>
+    <div class="search-field">
+      <label>Check-in</label>
+      <input type="date" id="searchDate" />
+    </div>
+    <div class="search-field">
+      <label>Duration</label>
+      <select id="searchDuration">
+        <option value="">Select Duration</option>
+        <option>3–5 Days</option>
+        <option>1 Week</option>
+        <option>2 Weeks</option>
+        <option>1 Month+</option>
+      </select>
+    </div>
+    <div class="search-field">
+      <label>Travelers</label>
+      <select id="searchPeople">
+        <option>1 Adult</option>
+        <option>2 Adults</option>
+        <option>Family (3–5)</option>
+        <option>Group (6+)</option>
+      </select>
+    </div>
+    <button class="search-btn" onclick="handleSearch()">
+      🔍 Search
+    </button>
+  </div>
+</div>
+
+<!-- FEATURED DESTINATIONS -->
+<section id="destinations">
+  <div class="section-header">
+    <div>
+      <div class="section-tag reveal">🌍 Top Picks</div>
+      <h2 class="section-title reveal">Featured Destinations</h2>
+      <p class="section-sub reveal">Explore handpicked places that promise extraordinary adventures</p>
+    </div>
+    <a href="#packages" class="btn-primary reveal" style="text-decoration:none;">View All →</a>
+  </div>
+
+  <div class="destinations-grid">
+    <div class="dest-card reveal" onclick="openModal('bali')">
+      <img src="images/destinations/bali.jpg" alt="Bali" class="dest-img"/>
+      <div class="dest-overlay">
+        <div class="dest-badge">Most Popular</div>
+        <div class="dest-name">Bali, Indonesia</div>
+        <div class="dest-meta">
+          <span class="dest-rating">★ 4.9</span>
+          <span>·</span>
+          <span>520+ Reviews</span>
+          <span>·</span>
+          <span>From $899</span>
+        </div>
+      </div>
+      <div class="dest-heart" onclick="event.stopPropagation(); toggleHeart(this)">♥</div>
+    </div>
+    <div class="dest-card reveal" onclick="openModal('paris')">
+      <img src="images/destinations/paris.jpg" alt="Paris" class="dest-img"/>
+      <div class="dest-overlay">
+        <div class="dest-badge">Trending</div>
+        <div class="dest-name">Paris, France</div>
+        <div class="dest-meta">
+          <span class="dest-rating">★ 4.8</span>
+          <span>·</span>
+          <span>From $1,299</span>
+        </div>
+      </div>
+      <div class="dest-heart" onclick="event.stopPropagation(); toggleHeart(this)">♥</div>
+    </div>
+    <div class="dest-card reveal" onclick="openModal('maldives')">
+      <img src="images/destinations/maldives.jpg" alt="Maldives" class="dest-img"/>
+      <div class="dest-overlay">
+        <div class="dest-badge">Luxury</div>
+        <div class="dest-name">Maldives</div>
+        <div class="dest-meta">
+          <span class="dest-rating">★ 5.0</span>
+          <span>·</span>
+          <span>From $2,499</span>
+        </div>
+      </div>
+      <div class="dest-heart" onclick="event.stopPropagation(); toggleHeart(this)">♥</div>
+    </div>
+    <div class="dest-card reveal" onclick="openModal('santorini')">
+      <img src="images/destinations/santorini.jpg" alt="Santorini" class="dest-img"/>
+      <div class="dest-overlay">
+        <div class="dest-badge">Romantic</div>
+        <div class="dest-name">Santorini, Greece</div>
+        <div class="dest-meta">
+          <span class="dest-rating">★ 4.9</span>
+          <span>·</span>
+          <span>From $1,599</span>
+        </div>
+      </div>
+      <div class="dest-heart" onclick="event.stopPropagation(); toggleHeart(this)">♥</div>
+    </div>
+    <div class="dest-card reveal" onclick="openModal('tokyo')">
+      <img src="images/packages/tokyo-pkg.jpg" alt="Tokyo" class="dest-img"/>
+      <div class="dest-overlay">
+        <div class="dest-badge">Cultural</div>
+        <div class="dest-name">Tokyo, Japan</div>
+        <div class="dest-meta">
+          <span class="dest-rating">★ 4.8</span>
+          <span>·</span>
+          <span>From $1,199</span>
+        </div>
+      </div>
+      <div class="dest-heart" onclick="event.stopPropagation(); toggleHeart(this)">♥</div>
+    </div>
+  </div>
+</section>
+
+<!-- CATEGORIES -->
+<section id="categories">
+  <div class="section-header">
+    <div>
+      <div class="section-tag">🗂 Browse By Type</div>
+      <h2 class="section-title">Travel Categories</h2>
+      <p class="section-sub">Choose the kind of adventure that excites you most</p>
+    </div>
+  </div>
+  <div class="categories-scroll">
+    <div class="cat-card active" onclick="filterCategory(this, 'all')">
+      <div class="cat-icon">🌏</div>
+      <div class="cat-name">All</div>
+      <div class="cat-count">500+ places</div>
+    </div>
+    <div class="cat-card" onclick="filterCategory(this, 'beach')">
+      <div class="cat-icon">🏖️</div>
+      <div class="cat-name">Beach</div>
+      <div class="cat-count">128 places</div>
+    </div>
+    <div class="cat-card" onclick="filterCategory(this, 'mountain')">
+      <div class="cat-icon">⛰️</div>
+      <div class="cat-name">Mountains</div>
+      <div class="cat-count">94 places</div>
+    </div>
+    <div class="cat-card" onclick="filterCategory(this, 'city')">
+      <div class="cat-icon">🏙️</div>
+      <div class="cat-name">City Tours</div>
+      <div class="cat-count">215 places</div>
+    </div>
+    <div class="cat-card" onclick="filterCategory(this, 'adventure')">
+      <div class="cat-icon">🧗</div>
+      <div class="cat-name">Adventure</div>
+      <div class="cat-count">76 places</div>
+    </div>
+    <div class="cat-card" onclick="filterCategory(this, 'culture')">
+      <div class="cat-icon">🏛️</div>
+      <div class="cat-name">Culture</div>
+      <div class="cat-count">143 places</div>
+    </div>
+    <div class="cat-card" onclick="filterCategory(this, 'wildlife')">
+      <div class="cat-icon">🦁</div>
+      <div class="cat-name">Wildlife</div>
+      <div class="cat-count">58 places</div>
+    </div>
+    <div class="cat-card" onclick="filterCategory(this, 'cruise')">
+      <div class="cat-icon">🚢</div>
+      <div class="cat-name">Cruise</div>
+      <div class="cat-count">42 places</div>
+    </div>
+  </div>
+</section>
+
+<!-- TOUR PACKAGES -->
+<section id="packages">
+  <div class="section-header">
+    <div>
+      <div class="section-tag reveal">📦 Best Deals</div>
+      <h2 class="section-title reveal">Tour Packages</h2>
+      <p class="section-sub reveal">All-inclusive packages crafted for every kind of traveler</p>
+    </div>
+  </div>
+  <div class="packages-grid" id="packagesGrid">
+    <div class="pkg-card reveal">
+      <div class="pkg-img-wrap">
+        <img src="images/packages/bali-pkg.jpg" alt="Bali Bliss" class="pkg-img"/>
+        <div class="pkg-tag">Best Seller</div>
+        <div class="pkg-wishlist" onclick="toggleWishlist(this)">♥</div>
+      </div>
+      <div class="pkg-body">
+        <div class="pkg-loc">📍 Bali, Indonesia</div>
+        <div class="pkg-name">Bali Island Bliss – 7 Days</div>
+        <div class="pkg-features">
+          <span class="pkg-feat">✈ Flights incl.</span>
+          <span class="pkg-feat">🏨 5-star Hotel</span>
+          <span class="pkg-feat">🍽 All Meals</span>
+          <span class="pkg-feat">🚌 Transfers</span>
+        </div>
+        <div class="pkg-footer">
+          <div class="pkg-price">
+            <span class="pkg-price-from">From</span>
+            <span class="pkg-price-num">$899</span>
+            <span class="pkg-price-per">per person</span>
+          </div>
+          <div>
+            <div class="pkg-stars">★★★★★</div>
+            <button class="pkg-book" onclick="openModal('bali')">Book Now</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="pkg-card reveal">
+      <div class="pkg-img-wrap">
+        <img src="images/packages/paris-pkg.jpg" alt="Paris Romance" class="pkg-img"/>
+        <div class="pkg-tag">Romantic</div>
+        <div class="pkg-wishlist" onclick="toggleWishlist(this)">♥</div>
+      </div>
+      <div class="pkg-body">
+        <div class="pkg-loc">📍 Paris, France</div>
+        <div class="pkg-name">Paris Romantic Getaway – 5 Days</div>
+        <div class="pkg-features">
+          <span class="pkg-feat">✈ Flights incl.</span>
+          <span class="pkg-feat">🏨 Boutique Hotel</span>
+          <span class="pkg-feat">🍽 Breakfast</span>
+          <span class="pkg-feat">🎭 City Tour</span>
+        </div>
+        <div class="pkg-footer">
+          <div class="pkg-price">
+            <span class="pkg-price-from">From</span>
+            <span class="pkg-price-num">$1,299</span>
+            <span class="pkg-price-per">per person</span>
+          </div>
+          <div>
+            <div class="pkg-stars">★★★★★</div>
+            <button class="pkg-book" onclick="openModal('paris')">Book Now</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="pkg-card reveal">
+      <div class="pkg-img-wrap">
+        <img src="images/packages/maldives-pkg.jpg" alt="Maldives Luxury" class="pkg-img"/>
+        <div class="pkg-tag">Luxury</div>
+        <div class="pkg-wishlist" onclick="toggleWishlist(this)">♥</div>
+      </div>
+      <div class="pkg-body">
+        <div class="pkg-loc">📍 Maldives</div>
+        <div class="pkg-name">Maldives Overwater Villa – 6 Days</div>
+        <div class="pkg-features">
+          <span class="pkg-feat">✈ Business Class</span>
+          <span class="pkg-feat">🏨 Overwater Villa</span>
+          <span class="pkg-feat">🤿 Snorkeling</span>
+          <span class="pkg-feat">🍽 All Meals</span>
+        </div>
+        <div class="pkg-footer">
+          <div class="pkg-price">
+            <span class="pkg-price-from">From</span>
+            <span class="pkg-price-num">$2,499</span>
+            <span class="pkg-price-per">per person</span>
+          </div>
+          <div>
+            <div class="pkg-stars">★★★★★</div>
+            <button class="pkg-book" onclick="openModal('maldives')">Book Now</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="pkg-card reveal">
+      <div class="pkg-img-wrap">
+        <img src="images/packages/santorini-pkg.jpg" alt="Santorini" class="pkg-img"/>
+        <div class="pkg-tag">Trending</div>
+        <div class="pkg-wishlist" onclick="toggleWishlist(this)">♥</div>
+      </div>
+      <div class="pkg-body">
+        <div class="pkg-loc">📍 Santorini, Greece</div>
+        <div class="pkg-name">Santorini Sunset Escape – 8 Days</div>
+        <div class="pkg-features">
+          <span class="pkg-feat">✈ Flights incl.</span>
+          <span class="pkg-feat">🏨 Clifftop Hotel</span>
+          <span class="pkg-feat">🚢 Island Cruise</span>
+          <span class="pkg-feat">🍽 Half-Board</span>
+        </div>
+        <div class="pkg-footer">
+          <div class="pkg-price">
+            <span class="pkg-price-from">From</span>
+            <span class="pkg-price-num">$1,599</span>
+            <span class="pkg-price-per">per person</span>
+          </div>
+          <div>
+            <div class="pkg-stars">★★★★★</div>
+            <button class="pkg-book" onclick="openModal('santorini')">Book Now</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="pkg-card reveal">
+      <div class="pkg-img-wrap">
+        <img src="images/packages/tokyo-pkg.jpg" alt="Tokyo" class="pkg-img"/>
+        <div class="pkg-tag">Cultural</div>
+        <div class="pkg-wishlist" onclick="toggleWishlist(this)">♥</div>
+      </div>
+      <div class="pkg-body">
+        <div class="pkg-loc">📍 Tokyo, Japan</div>
+        <div class="pkg-name">Tokyo Sakura Explorer – 10 Days</div>
+        <div class="pkg-features">
+          <span class="pkg-feat">✈ Flights incl.</span>
+          <span class="pkg-feat">🏨 4-star Hotel</span>
+          <span class="pkg-feat">🚄 Rail Pass</span>
+          <span class="pkg-feat">🗺 Guide</span>
+        </div>
+        <div class="pkg-footer">
+          <div class="pkg-price">
+            <span class="pkg-price-from">From</span>
+            <span class="pkg-price-num">$1,199</span>
+            <span class="pkg-price-per">per person</span>
+          </div>
+          <div>
+            <div class="pkg-stars">★★★★½</div>
+            <button class="pkg-book" onclick="openModal('tokyo')">Book Now</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="pkg-card reveal">
+      <div class="pkg-img-wrap">
+        <img src="images/packages/amalfi-pkg.jpg" alt="Amalfi" class="pkg-img"/>
+        <div class="pkg-tag">Adventure</div>
+        <div class="pkg-wishlist" onclick="toggleWishlist(this)">♥</div>
+      </div>
+      <div class="pkg-body">
+        <div class="pkg-loc">📍 Amalfi Coast, Italy</div>
+        <div class="pkg-name">Amalfi Coastal Drive – 7 Days</div>
+        <div class="pkg-features">
+          <span class="pkg-feat">✈ Flights incl.</span>
+          <span class="pkg-feat">🏨 Boutique Inn</span>
+          <span class="pkg-feat">🚗 Car Rental</span>
+          <span class="pkg-feat">🍝 Local Food</span>
+        </div>
+        <div class="pkg-footer">
+          <div class="pkg-price">
+            <span class="pkg-price-from">From</span>
+            <span class="pkg-price-num">$1,799</span>
+            <span class="pkg-price-per">per person</span>
+          </div>
+          <div>
+            <div class="pkg-stars">★★★★★</div>
+            <button class="pkg-book" onclick="openModal('amalfi')">Book Now</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section id="how-it-works">
+  <div style="text-align:center; max-width:600px; margin:0 auto 20px;">
+    <div class="section-tag reveal">🔄 Simple Process</div>
+    <h2 class="section-title reveal" style="margin:0 auto;">How It Works</h2>
+    <p class="section-sub reveal" style="margin:12px auto 0;">Book your dream trip in just 4 easy steps</p>
+  </div>
+  <div class="steps-grid">
+    <div class="step reveal">
+      <div class="step-num">01</div>
+      <div class="step-icon">🔍</div>
+      <div class="step-title">Choose Destination</div>
+      <p class="step-desc">Browse our curated collection of 500+ destinations worldwide and find the perfect match for your dream trip.</p>
+    </div>
+    <div class="step reveal">
+      <div class="step-num">02</div>
+      <div class="step-icon">📋</div>
+      <div class="step-title">Select Package</div>
+      <p class="step-desc">Pick from our flexible tour packages that fit your budget, timeline, and preferred travel style.</p>
+    </div>
+    <div class="step reveal">
+      <div class="step-num">03</div>
+      <div class="step-icon">💳</div>
+      <div class="step-title">Book & Pay</div>
+      <p class="step-desc">Securely complete your booking with our easy payment options. Get instant confirmation via email.</p>
+    </div>
+    <div class="step reveal">
+      <div class="step-num">04</div>
+      <div class="step-icon">🧳</div>
+      <div class="step-title">Pack & Travel!</div>
+      <p class="step-desc">Receive your detailed itinerary and travel documents. Pack your bags and enjoy your perfect vacation!</p>
+    </div>
+  </div>
+</section>
+
+<!-- GALLERY -->
+<section id="gallery">
+  <div class="section-header">
+    <div>
+      <div class="section-tag reveal">📸 Moments</div>
+      <h2 class="section-title reveal">Travel Gallery</h2>
+      <p class="section-sub reveal">Real moments from our travelers around the globe</p>
+    </div>
+  </div>
+  <div class="gallery-grid">
+    <div class="gallery-item reveal">
+      <img src="images/gallery/g1.jpg" alt="Travel" class="gallery-img"/>
+      <div class="gallery-overlay">🔍</div>
+    </div>
+    <div class="gallery-item reveal">
+      <img src="images/gallery/g2.jpg" alt="Travel" class="gallery-img"/>
+      <div class="gallery-overlay">🔍</div>
+    </div>
+    <div class="gallery-item reveal">
+      <img src="images/gallery/g3.jpg" alt="Travel" class="gallery-img"/>
+      <div class="gallery-overlay">🔍</div>
+    </div>
+    <div class="gallery-item reveal">
+      <img src="images/gallery/g4.jpg" alt="Nature" class="gallery-img"/>
+      <div class="gallery-overlay">🔍</div>
+    </div>
+    <div class="gallery-item reveal">
+      <img src="images/gallery/g5.jpg" alt="Travel" class="gallery-img"/>
+      <div class="gallery-overlay">🔍</div>
+    </div>
+    <div class="gallery-item reveal">
+      <img src="images/gallery/g6.jpg" alt="Travel" class="gallery-img"/>
+      <div class="gallery-overlay">🔍</div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section id="testimonials">
+  <div style="text-align:center; max-width:600px; margin:0 auto 60px;">
+    <div class="section-tag reveal">💬 Happy Travelers</div>
+    <h2 class="section-title reveal" style="margin:0 auto;">What Our Guests Say</h2>
+    <p class="section-sub reveal" style="margin:12px auto 0;">Real stories from travelers who explored the world with TripTrails</p>
+  </div>
+  <div class="testimonials-grid">
+    <div class="testi-card reveal">
+      <div class="testi-quote">"</div>
+      <p class="testi-text">The Bali trip was absolutely magical. Every detail was perfectly arranged — from the overwater villa to the local food experiences. TripTrails exceeded every expectation!</p>
+      <div class="testi-author">
+        <img src="images/avatars/sarah.jpg" alt="Sarah" class="testi-avatar"/>
+        <div>
+          <div class="testi-name">Sarah Johnson</div>
+          <div class="testi-meta">Bali, Indonesia · May 2025</div>
+          <div class="testi-stars">★★★★★</div>
+        </div>
+      </div>
+    </div>
+    <div class="testi-card reveal">
+      <div class="testi-quote">"</div>
+      <p class="testi-text">Paris was a dream come true. The boutique hotel recommendation was spot-on and the guided tour covered all the hidden gems I never would have found on my own!</p>
+      <div class="testi-author">
+        <img src="images/avatars/michael.jpg" alt="Michael" class="testi-avatar"/>
+        <div>
+          <div class="testi-name">Michael Chen</div>
+          <div class="testi-meta">Paris, France · March 2025</div>
+          <div class="testi-stars">★★★★★</div>
+        </div>
+      </div>
+    </div>
+    <div class="testi-card reveal">
+      <div class="testi-quote">"</div>
+      <p class="testi-text">Santorini at sunset was breathtaking! The team's attention to detail and customer support throughout the journey was exceptional. 10/10 would book again!</p>
+      <div class="testi-author">
+        <img src="images/avatars/priya.jpg" alt="Priya" class="testi-avatar"/>
+        <div>
+          <div class="testi-name">Priya Sharma</div>
+          <div class="testi-meta">Santorini, Greece · July 2025</div>
+          <div class="testi-stars">★★★★★</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- NEWSLETTER -->
+<section id="newsletter">
+  <div style="position:relative; z-index:1;">
+    <div class="section-tag">✉ Stay Connected</div>
+    <h2 class="section-title" style="margin-bottom:16px;">Get Exclusive Travel Deals</h2>
+    <p class="section-sub">Subscribe to our newsletter and be the first to know about special offers, new destinations, and travel inspiration.</p>
+    <div class="newsletter-form">
+      <input type="email" class="newsletter-input" id="newsletterEmail" placeholder="Enter your email address" />
+      <button class="newsletter-btn" onclick="subscribeNewsletter()">Subscribe →</button>
+    </div>
+    <p style="color:rgba(255,255,255,0.4); font-size:0.78rem; margin-top:14px;">No spam. Unsubscribe anytime. Join 12,000+ travel enthusiasts.</p>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="section-header">
+    <div>
+      <div class="section-tag reveal">📬 Get In Touch</div>
+      <h2 class="section-title reveal">Plan Your Dream Trip</h2>
+      <p class="section-sub reveal">Have questions? Our travel experts are ready to help craft your perfect itinerary.</p>
+    </div>
+  </div>
+  <div class="contact-grid">
+    <div class="contact-info reveal">
+      <h3>Contact Information</h3>
+      <div class="contact-item">
+        <div class="contact-icon">📧</div>
+        <div class="contact-detail">
+          <strong>Email Us</strong>
+          <span>hello@triptrails.com</span>
+        </div>
+      </div>
+      <div class="contact-item">
+        <div class="contact-icon">📞</div>
+        <div class="contact-detail">
+          <strong>Call Us</strong>
+          <span>+1 (800) TRIPTRAILS</span>
+        </div>
+      </div>
+      <div class="contact-item">
+        <div class="contact-icon">📍</div>
+        <div class="contact-detail">
+          <strong>Visit Us</strong>
+          <span>42 Explorer Avenue, Mumbai, India</span>
+        </div>
+      </div>
+      <div class="contact-item">
+        <div class="contact-icon">⏰</div>
+        <div class="contact-detail">
+          <strong>Working Hours</strong>
+          <span>Mon–Sat, 9 AM – 7 PM IST</span>
+        </div>
+      </div>
+      <div style="margin-top:32px;">
+        <p style="font-weight:700; color:var(--sky); margin-bottom:14px;">Follow Our Adventures</p>
+        <div style="display:flex; gap:12px;">
+          <a href="#" class="social-btn" style="background:var(--light-terra); color:var(--terra);">f</a>
+          <a href="#" class="social-btn" style="background:var(--light-terra); color:var(--terra);">ig</a>
+          <a href="#" class="social-btn" style="background:var(--light-terra); color:var(--terra);">tw</a>
+          <a href="#" class="social-btn" style="background:var(--light-terra); color:var(--terra);">yt</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="contact-form reveal">
+      <div class="form-row">
+        <div class="form-group">
+          <label>First Name</label>
+          <input type="text" id="fname" placeholder="John" />
+        </div>
+        <div class="form-group">
+          <label>Last Name</label>
+          <input type="text" id="lname" placeholder="Doe" />
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Email Address</label>
+        <input type="email" id="cemail" placeholder="john@example.com" />
+      </div>
+      <div class="form-row">
+        <div class="form-group">
+          <label>Destination</label>
+          <select id="cdestination">
+            <option value="">Select Destination</option>
+            <option>Bali, Indonesia</option>
+            <option>Paris, France</option>
+            <option>Maldives</option>
+            <option>Santorini, Greece</option>
+            <option>Tokyo, Japan</option>
+            <option>Amalfi Coast, Italy</option>
+            <option>Other</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Budget (USD)</label>
+          <select id="cbudget">
+            <option value="">Select Budget</option>
+            <option>Under $1,000</option>
+            <option>$1,000 – $2,000</option>
+            <option>$2,000 – $5,000</option>
+            <option>$5,000+</option>
+          </select>
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Message</label>
+        <textarea id="cmessage" placeholder="Tell us about your dream trip..."></textarea>
+      </div>
+      <button class="form-submit" onclick="submitContact()">Send Message ✈</button>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <a href="#hero" class="logo">Trip<span>Trails</span></a>
+      <p class="footer-desc">Creating extraordinary travel experiences since 2018. We believe every journey should be a story worth telling.</p>
+      <div class="footer-socials">
+        <a href="#" class="social-btn">f</a>
+        <a href="#" class="social-btn">in</a>
+        <a href="#" class="social-btn">tw</a>
+        <a href="#" class="social-btn">yt</a>
+      </div>
+    </div>
+    <div class="footer-col">
+      <h4>Explore</h4>
+      <ul class="footer-links">
+        <li><a href="#destinations">Destinations</a></li>
+        <li><a href="#packages">Tour Packages</a></li>
+        <li><a href="#gallery">Gallery</a></li>
+        <li><a href="#how-it-works">How It Works</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Company</h4>
+      <ul class="footer-links">
+        <li><a href="#">About Us</a></li>
+        <li><a href="#">Careers</a></li>
+        <li><a href="#">Press</a></li>
+        <li><a href="#testimonials">Reviews</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Support</h4>
+      <ul class="footer-links">
+        <li><a href="#">FAQ</a></li>
+        <li><a href="#">Cancellation Policy</a></li>
+        <li><a href="#">Travel Insurance</a></li>
+        <li><a href="#">Privacy Policy</a></li>
+        <li><a href="#">Terms of Service</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2025 TripTrails. Built with HTML | CSS | JavaScript | PHP. All rights reserved.</p>
+    <div class="footer-bottom-links">
+      <a href="#">Privacy</a>
+      <a href="#">Terms</a>
+      <a href="#">Cookies</a>
+    </div>
+  </div>
+</footer>
+
+<!-- DESTINATION MODAL -->
+<div class="modal-overlay" id="modalOverlay" onclick="closeModal(event)">
+  <div class="modal" style="position:relative;">
+    <button class="modal-close" onclick="closeModal()">✕</button>
+    <img id="modalImg" src="" alt="" class="modal-img"/>
+    <div class="modal-body">
+      <h2 class="modal-title" id="modalTitle"></h2>
+      <p class="modal-meta" id="modalMeta"></p>
+      <p class="modal-desc" id="modalDesc"></p>
+      <div class="modal-actions">
+        <button class="btn-primary" onclick="bookNow()">Book This Trip ✈</button>
+        <button class="btn-secondary" style="color:var(--sky); border-color:var(--sky);" onclick="closeModal()">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- BACK TO TOP -->
+<button id="back-top" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+
+<!-- TOAST NOTIFICATION -->
+<div class="toast" id="toast"></div>
+
+<!-- JavaScript -->
+<script src="js/script.js"></script>
+</body>
+</html>
